@@ -1,0 +1,22 @@
+<div class="row std_list">
+    <div class="col-md-2 std_list">Id</div>
+    <div class="col-md-2 std_list">First name</div>
+    <div class="col-md-2 std_list">Last Name</div>
+    <div class="col-md-2 std_list">Gmail</div>
+    <div class="col-md-2 std_list">Update</div>
+    <div class="col-md-2 std_list">Delete</div>
+</div>
+
+
+<div class="row std_list" *ngFor="let std of students">
+    <div class="col-md-2 std_list">{{std.id}}</div>
+    <div class="col-md-2 std_list">{{std.fname}}</div>
+    <div class="col-md-2 std_list">{{std.lname}}</div>
+    <div class="col-md-2 std_list">{{std.gmail}}</div>
+    <div class="col-md-2 std_list"><button class="btn btn-success" (click)="update(std)">Update</button></div>
+    <div class="col-md-2 std_list"><button class="btn btn-danger" (click)="delete(std)">Delete</button></div>
+</div>
+
+<div>
+    <a routerLink="/add" class="btn btn-primary">Add new Student</a>
+</div>

@@ -1,0 +1,35 @@
+<div class="col-md-3" class="add_main">
+
+    <h2 class="text-center">Edit Students</h2>
+    <form [formGroup]="addForm" novalidate class="form">
+
+<input type="hidden" formControlname="id" name=id>
+        <div class="form-group">
+            <label for="fname">First Name of Student:</label>
+            <input type="text" formControlName="fname" placeholder="Student's first name" name="fname"
+                class="form-control">
+        </div>
+
+
+        <div class="form-group">
+            <label for="lname">Last Name of Student:</label>
+            <input type="text" formControlName="lname" placeholder="Student's last name" name="lname"
+                class="form-control">
+        </div>
+
+        <div class="form-group" >
+                        <label for="gmail">Mail id of Student:</label>
+            <input id="gmail" type="text"
+                formControlName="gmail"  placeholder="Student's Mail id" name="gmail" class="form-control">
+
+        </div>
+
+     <button  class="btn btn-success" (click)="onEdit()">Edit Student</button>
+
+    </form>
+
+    <div>
+        <a routerLink="/view" class="btn btn-primary">View Student</a>
+    </div>
+
+</div>
