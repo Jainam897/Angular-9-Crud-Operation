@@ -11,7 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { from } from 'rxjs';
 import { EditComponent } from './edit/edit.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialmoduleModule } from './materialmodule/materialmodule.module';
 
 export const routes: Routes = [
   { path: '', component: ViewComponent, pathMatch: 'full' },
@@ -33,7 +34,9 @@ export const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialmoduleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-<div class="row std_list">
+<!-- <div class="row std_list">
     <div class="col-md-2 std_list">Id</div>
     <div class="col-md-2 std_list">First name</div>
     <div class="col-md-2 std_list">Last Name</div>
@@ -19,4 +19,56 @@
 
 <div>
     <a routerLink="/add" class="btn btn-primary">Add new Student</a>
+</div> -->
+
+
+
+<mat-form-field style="margin: 30px">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="search here">
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8" style="margin: 30px">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" >
+
+    <ng-container matColumnDef="id">
+      <th class="col-md-3 std_list" mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+      <td  class="col-md-3 std_list" mat-cell *matCellDef="let std"> {{std.id}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="fname">
+      <th class="col-md-3 std_list" mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+      <td class="col-md-3 std_list" mat-cell *matCellDef="let std"> {{std.fname}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="lname">
+      <th class="col-md-3 std_list" mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+      <td class="col-md-3 std_list" mat-cell *matCellDef="let std"> {{std.lname}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="gmail">
+      <th class="col-md-3 std_list" mat-header-cell *matHeaderCellDef mat-sort-header> Gmail </th>
+      <td class="col-md-3 std_list" mat-cell *matCellDef="let std"> {{std.gmail}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Update">
+        <th class="col-md-3 std_list" mat-header-cell *matHeaderCellDef > Update </th>
+        <td class="col-md-3 std_list" *matCellDef="let std"><button mat-raised-button color="primary" (click)="update(std)">Update</button></td>
+    </ng-container>
+
+    <ng-container matColumnDef="Delete">
+        <th class="col-md-3 std_list" mat-header-cell *matHeaderCellDef > Delete </th>
+        <td class="col-md-3 std_list" *matCellDef="let std"><button mat-raised-button color="warn" (click)="delete(std)">Delete</button></td>
+    </ng-container>
+
+   <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row (click)="logdata(row)" *matRowDef="let row; columns: displayedColumns;"></tr> 
+  </table>
+  <mat-paginator [pageSizeOptions]="[4, 8, 12]"></mat-paginator>
+  
+
+</div>
+
+<div>
+    <a routerLink="/add" class="btn btn-primary " style="margin-left:30px">Add new Student</a>
 </div>
